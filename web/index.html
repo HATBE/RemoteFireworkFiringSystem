@@ -15,50 +15,64 @@
             <h1>
                 Remote Firework Firing System
             </h1>
+            <hr class="text-black">
 
             <div class="d-flex">
-                
                 <div class="section-wrapper w-25">
+                    <h4 class="m-b-10">
+                        POWER
+                    </h4>
                     <div class="d-flex">
                         <div class="btn-wrapper">
-                            <button id="power-btn" class="btn btn-lg btn-white"></button>
+                            <button id="power-btn" class="off btn btn-lg">
+                                <img draggable="false" src="./assets/power-btn.png" alt="Power Button">
+                            </button>
                             <span>POWER</span>
                         </div>
                     </div>
                 </div>
 
+                <div class="section-wrapper w-75 display">
+                    <h1 id="display-text"></h1>
+                </div>
             </div>
 
             <div class="d-flex">
 
                 <div class="section-wrapper w-75">
+                    <h4 class="m-b-10">
+                        CHANNEL
+                    </h4>
                     <div class="d-flex">
                         <div class="btn-wrapper">
-                            <button id="fire-btn-1" class="btn btn-lg btn-red"></button>
+                            <button data-id="1" class="btn btn-lg btn-red fire-btn" disabled></button>
                             <span>1</span>
                         </div>
                         
                         <div class="btn-wrapper">
-                            <button id="fire-btn-2" class="btn btn-lg btn-red"></button>
+                            <button data-id="2" class="btn btn-lg btn-red fire-btn" disabled></button>
                             <span>2</span>
                         </div>
 
                         <div class="btn-wrapper">
-                            <button id="fire-btn-3" class="btn btn-lg btn-red"></button>
+                            <button data-id="3" class="btn btn-lg btn-red fire-btn" disabled></button>
                             <span>3</span>
                         </div>
 
                         <div class="btn-wrapper">
-                            <button id="fire-btn-4" class="btn btn-lg btn-red"></button>
+                            <button data-id="4" class="btn btn-lg btn-red fire-btn" disabled></button>
                             <span>4</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="section-wrapper w-25">
+                    <h4 class="m-b-10">
+                        GENERAL
+                    </h4>
                     <div class="d-flex">
                         <div class="btn-wrapper">
-                            <button class="btn btn-lg btn-red"></button>
+                            <button id="fire-all-btn" class="btn btn-lg btn-red" disabled></button>
                             <span>FIRE ALL</span>
                         </div>
                     </div>
