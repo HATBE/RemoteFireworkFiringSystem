@@ -8,7 +8,7 @@ pins = [
         5, # GPIO 3
         7, # GPIO 4
         11 # GPIO 17
-        ]
+]
 
 args = sys.argv
 args.pop(0)

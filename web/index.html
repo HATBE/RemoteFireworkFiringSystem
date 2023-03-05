@@ -11,14 +11,14 @@
 </head>
 <body>
     <div class="background">
-        <div class="container">
+        <div class="container" style="min-width: 559px;">
             <h1>
                 Remote Firework Firing System
             </h1>
             <hr class="text-black">
 
             <div class="d-flex">
-                <div class="section-wrapper w-25">
+                <div class="section-wrapper">
                     <h4 class="m-b-10">
                         POWER
                     </h4>
@@ -32,14 +32,15 @@
                     </div>
                 </div>
 
-                <div class="section-wrapper w-75 display">
-                    <h1 id="display-text"></h1>
+                <div class="section-wrapper w-100 display">
+                    <h2 id="display-text" class="w-100 flex-center-center" style="height: 50px;"></h2>
+                    <h5 id="display-sub-text" class="w-100 text-white flex-center-center" style="height: 50px;"></h5>
                 </div>
             </div>
 
             <div class="d-flex">
 
-                <div class="section-wrapper w-75">
+                <div class="section-wrapper ">
                     <h4 class="m-b-10">
                         CHANNEL
                     </h4>
@@ -66,7 +67,7 @@
                     </div>
                 </div>
                 
-                <div class="section-wrapper w-25">
+                <div class="section-wrapper ">
                     <h4 class="m-b-10">
                         GENERAL
                     </h4>
@@ -74,6 +75,11 @@
                         <div class="btn-wrapper">
                             <button id="fire-all-btn" class="btn btn-lg btn-red" disabled></button>
                             <span>FIRE ALL</span>
+                        </div>
+
+                        <div class="btn-wrapper">
+                            <button id="reset-btn" class="btn btn-lg btn-green" disabled></button>
+                            <span>RESET</span>
                         </div>
                     </div>
                 </div>
