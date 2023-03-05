@@ -58,8 +58,8 @@ body {
     cursor: pointer;
     border: var(--black) 2px solid;
     
-    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 16px 16px 32px 0px rgba(0,0,0,0); 
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 16px 16px 32px 0px rgba(0,0,0,0);
+    -webkit-box-shadow: inset 4px 4px 15px 0px #000000;
+    box-shadow: inset 4px 4px 15px 0px #000000;
 }
 
 .btn-lg {
@@ -138,12 +138,17 @@ body {
 }
 
 .btn:active {
-    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 10px 20px 0px #000000, 16px 10px 10px 0px rgba(0,0,0,0); 
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 10px 20px 0px #000000, 16px 10px 10px 0px rgba(0,0,0,0);
+    -webkit-box-shadow: inset 4px 10px 20px 0px #000000; 
+    box-shadow:  inset 4px 10px 20px 0px #000000;
+}
+
+.btn:disabled:active {
+    -webkit-box-shadow: inset 4px 4px 15px 0px #000000;
+    box-shadow: inset 4px 4px 15px 0px #000000;
 }
 
 .btn:disabled {
-    background-color: black;
+    background-color: var(--black);
     cursor: not-allowed;
 }
 
@@ -178,11 +183,11 @@ body {
 
 @keyframes glowing {
     from {
-        -webkit-box-shadow: 0px 0px 27px -1px rgba(0,0,0,0.54); 
-        box-shadow: 0px 0px 27px -1px var(--green);
+        -webkit-box-shadow: 0px 0px 27px -1px var(--green), inset 4px 4px 15px 0px #000000; 
+        box-shadow: 0px 0px 27px -1px var(--green), inset 4px 4px 15px 0px #000000;
     }
     to {
-        -webkit-box-shadow: 0px 0px 27px 9px rgba(0,0,0,0.54); 
-        box-shadow: 0px 0px 27px 9px var(--green);
+        -webkit-box-shadow: 0px 0px 27px 9px var(--green), inset 4px 4px 15px 0px #000000; 
+        box-shadow: 0px 0px 27px 9px var(--green), inset 4px 4px 15px 0px #000000;
     }
   }
