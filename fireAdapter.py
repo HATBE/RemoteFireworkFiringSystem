@@ -13,9 +13,9 @@ pins = [
 args = sys.argv
 args.pop(0)
 
-def exitSave():
+def exitSave(exitCode = 0):
         GPIO.cleanup()
-        sys.exit(0)
+        sys.exit(exitCode)
 
 def configureGPIO():
         GPIO.setwarnings(False)
@@ -29,13 +29,13 @@ configureGPIO()
 
 if len(sys.argv) != 1:
         print("Please provide a number between 1 and {}".format(len(pins)))
-        exitSave()
+        exitSave(1)
 if not args[0].isdigit():
         print("Please provide a number between 1 and {}".format(len(pins)))
-        exitSave()
+        exitSave(1)
 if int(args[0]) > len(pins) or int(args[0]) <= 0:
         print("Please provide a number between 1 and {}".format(len(pins)))
-        exitSave()
+        exitSave(1)
 
 pin = pins[int(args[0]) - 1]
 

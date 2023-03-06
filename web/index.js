@@ -93,6 +93,35 @@ function resetBoard() {
     elResetBtn.disabled = true;
 }
 
+function fireall() {
+    elFireAllBtn.disabled = true;
+    elsFireBtn.forEach(fireBtn => {
+        fireBtn.disabled = true;
+    });
+    elResetBtn.disabled = false
+    setDisplaySubText(`Fired all channels`);
+}
+
+function fireSingle(fireBtn) {
+    // if one of the channel fire buttons are pressed,
+    // the fireall btn and the fire channel x btn is disabled
+
+    const id = fireBtn.dataset.id;
+
+    elResetBtn.disabled = false
+    elFireAllBtn.disabled = true;
+    fireBtn.disabled = true;
+    setDisplaySubText(`Send signal to channel  ${id}`, textColorClassesList.white);
+
+    fetch(`http://10.10.10.106/api.php/fire/${id}`, {
+        method: 'POST'
+    })
+    .then(response=>response.text())
+    .then(data=>{
+        setDisplaySubText(`Fired channel ${id}`, textColorClassesList.white);
+     })
+}
+
 // -----------------------------------------
 // ----------------------------------------- SCRIPT
 // -----------------------------------------
@@ -112,22 +141,12 @@ elResetBtn.addEventListener('click', () => {
 
 // if fire all button was pressed
 elFireAllBtn.addEventListener('click', () => {
-    elFireAllBtn.disabled = true;
-    elsFireBtn.forEach(fireBtn => {
-        fireBtn.disabled = true;
-    });
-    elResetBtn.disabled = false
-    setDisplaySubText(`Fired all channels`);
+    fireall();
 });
 
 // if one of the channel fire buttons was pressed
 elsFireBtn.forEach(fireBtn => {
     fireBtn.addEventListener('click', () => {
-        // if one of the channel fire buttons are pressed,
-        // the fireall btn and the fire channel x btn is disabled
-        elResetBtn.disabled = false
-        elFireAllBtn.disabled = true;
-        fireBtn.disabled = true;
-        setDisplaySubText(`Fired channel ${fireBtn.dataset.id}`);
+       fireSingle(fireBtn);
     });
 });

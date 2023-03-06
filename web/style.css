@@ -159,7 +159,9 @@ body {
 }
 
 .btn:disabled::after {
-    content: 'OFF'
+    content: 'OFF';
+    color: var(--white);
+    opacity: 0.4;
 }
 .display {
     display: flex;
@@ -189,6 +191,10 @@ body {
 
 .text-white {
     color: var(--white);
+}
+
+.border-black {
+    border-color: var(--black);
 }
 
 @keyframes glowing {
