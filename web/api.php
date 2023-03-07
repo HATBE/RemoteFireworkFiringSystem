@@ -13,7 +13,7 @@
         die('Please use the method POST');
     }
     
-    // the pathinfo (the parte after *.php/ like: server.com/api.php/endpoint) must be set to something
+    // the pathinfo (the part after *.php/ like: server.com/api.php/endpoint) must be set to something
     if(!isset($_SERVER['PATH_INFO'])) {
         die('Please specify an endpoint');
     }
@@ -33,15 +33,15 @@
         case 'fire':
             // \/ START ----------------------------------------- FIRE \/
             if(count($url) !== 2) {
-                die('Please specify a channel');
+                die('Please specify a channel to fire');
             }
 
             if(!is_numeric($url[1])) {
-                die('Please specify a number as a channel');
+                die('Please specify the channel number');
             }
 
-            // execute the python script
-            exec("sudo /usr/bin/python /var/www/html/fireAdapter.py {$url[1]}", $output, $r_code);
+            // execute the python script to fire channel x
+            exec("sudo /usr/bin/python /var/www/html/fireAdapter.py fire {$url[1]}", $output, $r_code);
 
             if($r_code !== 0) {
                 // if the python script returned an error code (code other than 0), print error message, if provided by python script.
@@ -49,12 +49,23 @@
             }
 
             echo 'ok';
-
             // /\ END ----------------------------------------- FIRE /\
             break;
         case 'fireall':
             // \/ START ----------------------------------------- FIRE ALL \/
-            echo "fireall";
+            if(count($url) !== 1) {
+                die('Please specify nothing after the endpoint');
+            }
+
+            // execute the python script to fire all channels
+            exec("sudo /usr/bin/python /var/www/html/fireAdapter.py fireall", $output, $r_code);
+
+            if($r_code !== 0) {
+                // if the python script returned an error code (code other than 0), print error message, if provided by python script.
+                die(isset($output[0]) ? $output[0] : 'something went wrong');
+            }
+
+            echo 'ok';
             // /\ END ----------------------------------------- FIRE ALL /\
             break;
         default:

@@ -99,7 +99,15 @@ function fireall() {
         fireBtn.disabled = true;
     });
     elResetBtn.disabled = false
-    setDisplaySubText(`Fired all channels`);
+
+    setDisplaySubText('Send signal to all channels', textColorClassesList.white);
+
+    fetch('http://10.10.10.106/api.php/fireall', {
+        method: 'POST'
+    })
+    .then(response=>response.text()).then(data=>{
+        setDisplaySubText('Fired all channels', textColorClassesList.white);
+     });
 }
 
 function fireSingle(fireBtn) {
@@ -111,15 +119,14 @@ function fireSingle(fireBtn) {
     elResetBtn.disabled = false
     elFireAllBtn.disabled = true;
     fireBtn.disabled = true;
-    setDisplaySubText(`Send signal to channel  ${id}`, textColorClassesList.white);
+    setDisplaySubText(`Send signal to channel ${id}`, textColorClassesList.white);
 
     fetch(`http://10.10.10.106/api.php/fire/${id}`, {
         method: 'POST'
     })
-    .then(response=>response.text())
-    .then(data=>{
+    .then(response=>response.text()).then(data=>{
         setDisplaySubText(`Fired channel ${id}`, textColorClassesList.white);
-     })
+     });
 }
 
 // -----------------------------------------
@@ -134,7 +141,7 @@ elPowerBtn.addEventListener('click', () => {
     togglePower();
 });
 
-// if reser button was pressed
+// if reset button was pressed
 elResetBtn.addEventListener('click', () => {
     resetBoard();
 });
