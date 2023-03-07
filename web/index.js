@@ -1,3 +1,5 @@
+const apiUrl = "http://10.10.10.106";
+
 let power = false;
 
 const elPowerBtn = document.getElementById('power-btn');
@@ -102,7 +104,7 @@ function fireall() {
 
     setDisplaySubText('Send signal to all channels', textColorClassesList.white);
 
-    fetch('http://10.10.10.106/api.php/fireall', {
+    fetch(`${apiUrl}/api.php/fireall`, {
         method: 'POST'
     })
     .then(response=>response.text()).then(data=>{
@@ -121,7 +123,7 @@ function fireSingle(fireBtn) {
     fireBtn.disabled = true;
     setDisplaySubText(`Send signal to channel ${id}`, textColorClassesList.white);
 
-    fetch(`http://10.10.10.106/api.php/fire/${id}`, {
+    fetch(`${apiUrl}/api.php/fire/${id}`, {
         method: 'POST'
     })
     .then(response=>response.text()).then(data=>{
