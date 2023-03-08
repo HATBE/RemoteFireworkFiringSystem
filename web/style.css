@@ -54,7 +54,6 @@ body {
     width: 30px;
     cursor: pointer;
     border: var(--black) 3px solid;
-    
     -webkit-box-shadow: inset 4px 4px 15px 0px #000000;
     box-shadow: inset 4px 4px 15px 0px #000000;
 }
@@ -171,6 +170,14 @@ body {
     font-size: 30px;
     background-color: var(--black);
     color: var(--black);
+    max-width: 376px;
+    overflow: hidden
+}
+
+#display-sub-text {
+
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .bg-black {

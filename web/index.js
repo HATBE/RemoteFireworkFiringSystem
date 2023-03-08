@@ -107,9 +107,13 @@ function fireall() {
     fetch(`${apiUrl}/api.php/fireall`, {
         method: 'POST'
     })
-    .then(response=>response.text()).then(data=>{
-        setDisplaySubText('Fired all channels', textColorClassesList.white);
-     });
+    .then(response=>response.json()).then(data=>{
+        if(data.status) {
+            setDisplaySubText('Fired all channels', textColorClassesList.white);
+        } else {
+            setDisplaySubText(`${data.message}`, textColorClassesList.red);
+        }
+    });
 }
 
 function fireSingle(fireBtn) {
@@ -126,9 +130,13 @@ function fireSingle(fireBtn) {
     fetch(`${apiUrl}/api.php/fire/${id}`, {
         method: 'POST'
     })
-    .then(response=>response.text()).then(data=>{
-        setDisplaySubText(`Fired channel ${id}`, textColorClassesList.white);
-     });
+    .then(response=>response.json()).then(data=>{
+        if(data.status) {
+            setDisplaySubText(`Fired channel ${id}`, textColorClassesList.white);
+        } else {
+            setDisplaySubText(`${data.message}`, textColorClassesList.red);
+        }
+    });
 }
 
 // -----------------------------------------
