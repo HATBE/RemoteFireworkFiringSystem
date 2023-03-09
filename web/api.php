@@ -40,8 +40,6 @@
         // execute the python script to fire channel x
         exec("sudo /usr/bin/python /var/www/html/hardwareAdapter.py fire {$url[1]}", $output, $r_code);
 
-        print_r($r_code);
-
         if($r_code !== 0) {
             // if the python script returned an error code (code other than 0), print error message, if provided by python script.
             die(jr(isset($output[0]) ? $output[0] : 'something went wrong', false));
